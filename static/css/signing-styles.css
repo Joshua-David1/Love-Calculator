@@ -1,0 +1,98 @@
+html{
+	width: 100%;
+	height: 100%;
+}
+
+
+body{
+	background-color:#191927;
+}
+
+input{
+	border-radius: 15px;
+	border: none;
+	background-color: #404254;
+	color: white;
+	font-weight: 600;
+	margin: 20px;
+	padding: 8px;
+	text-align: center;
+	width: 65%;
+}
+
+input:focus{
+	font-family: serif;
+	outline: none;
+}
+
+.login-container{
+	background-color: #222230;
+	border-radius: 7px;
+	height: 450px;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	text-align: center;
+	transform: translate(-50%,-50%);
+	width: 300px;
+	animation: transitionIn 1000ms;
+}
+
+.form-name-title{
+	color: white;
+	font-family: 'Secular One', sans-serif;
+	margin: 50px 0 45px 0;
+}
+
+.signing-btn{
+	border-radius: 7px;
+	background-color: #14A4AD;
+	color: white;
+	font-weight: 700;
+	left: 50%;
+	bottom: 12%;
+	position: absolute;
+	transform: translateX(-50%);
+	width: 50%;
+}
+
+.choice-container{
+	width: 100%;
+	position: absolute;
+	bottom: -50px;
+	left: 50%;
+	transform: translateX(-50%);
+}
+
+.choice-container p{
+	color: white;
+}
+
+.choice-container p a{
+	color: #14A4AD;
+}
+
+@keyframes transitionIn{
+	from{
+		opacity: 0;
+		left: 0;
+	}
+	to{
+		opacity: 1;
+		left: 50%;
+	}
+}
+
+a:hover{
+	text-decoration: none;
+}
+
+
+/*font families*/
+/*
+font-family: 'Della Respira', serif;
+font-family: 'Secular One', sans-serif;
+font-family: 'Ubuntu Mono', monospace;
+*/
+/*Colors to use:  login-container-#222230  body-background-#191927*/
+/*url -- https://dribbble.com/shots/4949208-Task-Tracker-Dark-Theme?utm_source=Pinterest_Shot&utm_campaign=mstrba&utm_content=Task%20Tracker%20-%20Dark%20Theme&utm_medium=Social_Share*/

@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block styles %}
+{{super()}}
+  <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/user-page-styles.css')}}">
+{% endblock %}
+{% block content %}
+<div class="container pranked-container">
+  <h4 class="pranked-message">
+    Haha!!! You have been pranked. Your crush name is not sent to Joshua.
+  </h4>
+  <p class="prank-choice">Wanna prank People? Signup an account then!</p>
+  <form action="{{url_for('register_page')}}">
+    <button class="btn redirect-btn">Signup</button>  
+  </form>
+</div>
+{{super()}}
+{% endblock %}
