@@ -147,6 +147,7 @@ input:focus{
 	display: block;
 	max-height: 230px;
 	overflow-y: auto;
+	overflow-x: auto;
 }
 
 .person-name, .crush-name{
