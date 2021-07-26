@@ -69,6 +69,7 @@ input:focus{
 	font-weight: 900;
 	display: block;
 	color: #01D3D2;
+	font-size: 10px;
 }
 
 .calc-btn{

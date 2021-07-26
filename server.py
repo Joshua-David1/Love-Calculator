@@ -21,7 +21,7 @@ app.config['SQLALCHEMY_DATABASE_URI'] = config('SQLALCHEMY_DATABASE_URI','sqlite
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = 'off'
 db = SQLAlchemy(app)
 
-class User(db.Model, UserMixin):
+class User(UserMixin,db.Model):
 	id = db.Column(db.Integer, primary_key=True)
 	username = db.Column(db.String(30), unique = True,  nullable = False)
 	password = db.Column(db.String(25), nullable = False)
@@ -144,7 +144,11 @@ def crush_details(id):
 		db.session.add(crush)
 		db.session.commit()
 		return redirect(url_for('prank_page',id = id))
-	return render_template('crush-details-page.html', form=form,id=id,name=current_user.username, percent=random_percent)
+	user = User.query.filter_by(id=id).first()
+	print(user)
+	if user != None:
+		return render_template('crush-details-page.html', form=form,id=id,name=user.username, percent=random_percent)
+	return redirect(url_for('login_page'))
 
 @app.route('/pranked', methods=["POST","GET"])
 def prank_page():
