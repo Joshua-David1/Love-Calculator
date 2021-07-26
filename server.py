@@ -7,6 +7,7 @@ from flask_sqlalchemy import SQLAlchemy
 from datetime import timedelta
 from random import randint
 from decouple import config
+import psycopg2
 
 random_percent = randint(1,100)
 

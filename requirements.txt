@@ -5,3 +5,4 @@ wtforms
 flask_sqlalchemy
 gunicorn==20.1.0
 python_decouple==3.4
+psycopg2
