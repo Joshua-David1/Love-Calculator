@@ -6,6 +6,7 @@ from wtforms.validators import DataRequired, InputRequired, Regexp, ValidationEr
 from flask_sqlalchemy import SQLAlchemy
 from datetime import timedelta
 from random import randint
+from decouple import config
 
 random_percent = randint(1,100)
 
@@ -14,8 +15,8 @@ app = Flask(__name__)
 login_manager = LoginManager()
 login_manager.init_app(app)
 
-app.config['SECRET_KEY'] = "Therla"
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///users-data-collection.db'
+app.config['SECRET_KEY'] = config('SECRET_KEY')
+app.config['SQLALCHEMY_DATABASE_URI'] = config('SQLALCHEMY_DATABASE_URI','sqlite:///users-data-collection.db')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = 'off'
 db = SQLAlchemy(app)
 
