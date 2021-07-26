@@ -1,4 +1,4 @@
-from flask import Flask, render_template, redirect, url_for, request, session, g
+from flask import Flask, render_template, redirect, url_for, request, session, g, jsonify
 from flask_wtf import FlaskForm
 from flask_login import LoginManager, UserMixin, login_user, logout_user, current_user
 from wtforms import StringField, PasswordField
@@ -168,6 +168,12 @@ def logout_page():
 		if request.method == "POST":
 			logout_user()
 	return redirect(url_for('login_page'))
+
+@app.route("/available-users")
+def user_list_page():
+	users = User.query.all()
+	users_list = [user.username for user in users]
+	return jsonify({"Users":users_list})
 
 if __name__ == "__main__":
 	app.run(debug = True)
