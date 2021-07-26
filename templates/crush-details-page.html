@@ -6,10 +6,18 @@
 {% block content %}
 <div class="container">
 	<h2 class="app-title">Love Calculator</h2>
-	<h4 class="prank-note">Chemistry between Joshua's crush and Joshua is 24%.<span>Check how much you and your crush have got!</span></h4>
-	<form action="{{url_for('crush_details')}}" method="POST" novalidate="">
+	<h4 class="prank-note">Chemistry between {{name.title()}}'s crush and {{name.title()}} is {{percent}}%.<span>Check how much you and your crush have got!</span></h4>
+	<form action="{{url_for('crush_details',id = id)}}" method="POST" novalidate>
+		{{form.csrf_token}}
+		{{form.person_name(autocomplete='off')}}
+		{% if form.person_name.errors %}
+		<p class="error">{{form.person_name.errors[0]}}</p>
+		{% endif %}
 		{{form.crush_name(autocomplete='off')}}
-		<button class="btn calc-btn">Check</button>
+		{% if form.crush_name.errors and not form.person_name.errors %}
+		<p class="error">{{form.crush_name.errors[0]}}</p>
+		{% endif %}
+		<button class="btn calc-btn" type="submit">Calculate</button>
 	</form>
 </div>
 {{super()}}

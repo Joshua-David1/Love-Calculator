@@ -60,11 +60,25 @@ input:focus{
 	transform: translateX(-50%);
 }
 
+.share-link-btn{
+	font-size: 13px;
+	width: 80%;
+}
+
+.share-link-btn a{
+	font-weight: 900;
+	display: block;
+	color: #01D3D2;
+}
+
 .calc-btn{
 	width: 50%;
 	background-color: #413432;
 	color: #FF9E44;
 	padding: 10px;
+	bottom: 0;
+	left: 50%;
+	transform: translate(-50%,50%);
 }
 
 .prank-note{
@@ -99,6 +113,54 @@ input:focus{
 .redirect-btn{
 	margin-top: 30px;
 	width: 40%;
+}
+
+.logout-btn{
+	background-color: #403432;
+	border-radius: 9px;
+	color: #FF9E44;
+	position: absolute;
+	bottom: 0;
+	transform: translate(-50%,50%);
+	width: 40%;
+}
+
+.error{
+	color: red;
+	margin: 0;
+	font-size: 15px;
+	position: relative;
+	top: 10px;
+}
+
+.crush-list-title{
+	margin: 30px 0 20px 0;
+	color: white;
+}
+
+.crush-list{
+	position: absolute;
+	width: 90%;
+	border: solid;
+	color: white;
+	display: block;
+	max-height: 230px;
+	overflow-y: auto;
+}
+
+.person-name, .crush-name{
+	font-size: 15px;
+	display: inline-block;
+	color: white;
+	position: relative;
+}
+
+.person-name{
+	right: 50px;
+}
+
+.crush-name{
+	left: 50px;
 }
 
 @keyframes transitionIn{

@@ -9,7 +9,13 @@
     <form method="POST" action="{{url_for(form_name+'_page')}}" novalidate>
       {{form.csrf_token}}
       {{form.username(autocomplete="off")}}
+      {% if form.username.errors %}
+      <p style="color: red;margin: 0;font-size: 16px">{{ form.username.errors[0] }}</p>
+      {% endif %}
       {{form.password}}
+      {% if form.password.errors and not form.username.errors%}
+      <p style="color: red;margin: 0;font-size: 16px">{{ form.password.errors[0] }}</p>
+      {% endif %}
       <button type="submit" class="btn signing-btn">{{button_name}}</button>
     </form>
     <div class="choice-container">

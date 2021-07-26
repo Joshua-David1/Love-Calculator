@@ -5,7 +5,18 @@
 {% endblock %}
 {% block content %}
 <div class="container .pranked-container">
-	<button class="btn share-link-btn">Share this link to other to prank</button>
+	<h2 class="crush-list-title">
+		Crush List
+	</h2>
+	<div class="crush-list">
+		{% for crush_record in crush_list %}
+		<div><h5 class="person-name">{{crush_record.from_username}}</h5><h5 class="crush-name">{{crush_record.crush_name}}</h5></div>
+		{% endfor %}
+	</div>
+	<button class="btn share-link-btn">Share this link <a href="{{prank_url}}">{{prank_url}}</a>to prank your friends</button>
+	<form action="/logout" method="POST">
+		<button class="btn logout-btn">Logout</button>
+	</form>
 </div>
 {{super()}}
 {% endblock %}
