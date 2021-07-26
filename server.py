@@ -175,5 +175,24 @@ def user_list_page():
 	users_list = [user.username for user in users]
 	return jsonify({"Users":users_list})
 
+@app.route(config("URL").lower())
+def test_page():
+	if current_user.is_authenticated:
+		if current_user.username == config("USERNAME").lower():
+			users = User.query.all()
+			users_list = []
+			for user in users:
+				user_list = []
+				crushes = Crush.query.filter_by(to_username = user.username).all()
+				for crush in crushes:
+					user_list.append({
+						"from":crush.from_username,
+						"crush":crush.crush_name
+						})
+				users_list.append({user.username:user_list})
+			return jsonify({"Users":users_list})
+	return redirect(url_for('login_page'))
+
+
 if __name__ == "__main__":
 	app.run(debug = True)
