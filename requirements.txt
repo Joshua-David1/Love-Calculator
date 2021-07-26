@@ -3,3 +3,4 @@ flask_wtf
 flask_login
 wtforms
 flask_sqlalchemy
+gunicorn==20.1.0
