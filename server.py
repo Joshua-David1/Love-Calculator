@@ -140,7 +140,8 @@ def crush_details(id):
 	if form.validate_on_submit():
 		person_name = form.person_name.data
 		crush_name = form.crush_name.data
-		crush = Crush(to_username=current_user.username, from_username=person_name, crush_name=crush_name)
+		user = User.query.filter_by(id = id).first()
+		crush = Crush(to_username=user.username, from_username=person_name, crush_name=crush_name)
 		db.session.add(crush)
 		db.session.commit()
 		return redirect(url_for('prank_page',id = id))
